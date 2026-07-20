@@ -390,23 +390,27 @@
         <h3 style="font-size:16px; font-family:var(--sans); margin:0;">Messaging platform migration</h3>
         <span class="badge priv">Private — NDA</span>
       </div>
-      <div class="fill-in">
-        // TODO — replace with your own summary:<br>
-        problem: &lt;what broke or didn't scale&gt;<br>
-        approach: &lt;how you re-architected it&gt;<br>
-        stack: &lt;services / queues / infra used&gt;<br>
-        result: &lt;measurable outcome, if you can share one&gt;
+      <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-family:var(--mono); margin:14px 0 6px;">Challenge</h3>
+      <p style="margin:0 0 14px;">Our application depended on a third-party messaging platform that no longer met our operational and product requirements. The migration needed to preserve existing user data while minimizing service disruption for approximately 10,000 daily active users.</p>
+      <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-family:var(--mono); margin:14px 0 6px;">Solution</h3>
+      <p style="margin:0 0 14px;">I contributed to the backend migration by designing and implementing the APIs required to transition to Firebase Realtime Database. To automate repetitive migration tasks, I also developed Python scripts that handled bulk data processing and reduced manual effort during the migration process. Throughout the rollout, I worked to maintain compatibility between the old and new systems to ensure a smooth transition.</p>
+      <div class="tags">
+        <span class="tag">NestJS</span><span class="tag">TypeScript</span><span class="tag">Python</span>
+        <span class="tag">Firebase Realtime DB</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span>
+        <span class="tag">RabbitMQ</span><span class="tag">Docker</span><span class="tag">Kubernetes</span>
       </div>
+      <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-family:var(--mono); margin:14px 0 6px;">Outcome</h3>
+      <p style="margin:0;">Migrated the messaging backend for roughly <strong style="color:var(--ink); font-weight:600;">10,000 daily active users</strong> with minimal service disruption, cut manual migration work through automated Python scripts, and left a more flexible foundation for future messaging features.</p>
     </div>
 
-    <div class="proj-card">
+    <!-- <div class="proj-card">
       <div class="proj-head">
         <h3 style="font-size:16px; font-family:var(--sans); margin:0;">Public flagship project</h3>
         <span class="badge plan">Planned</span>
       </div>
       <p style="margin:0;">A small, polished public repo — e.g. a task management or authentication service API with JWT, role-based access control, Swagger docs, tests, and a GitHub Actions pipeline — to link directly instead of describing.</p>
       <div class="tags"><span class="tag">NestJS</span><span class="tag">Prisma</span><span class="tag">Docker Compose</span><span class="tag">Swagger</span></div>
-    </div>
+    </div> -->
   </section>
 
   <section id="architecture">
