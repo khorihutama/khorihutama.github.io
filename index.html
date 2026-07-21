@@ -226,12 +226,20 @@
     padding:22px 24px; margin-bottom:16px;
   }
   .proj-head{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:10px; flex-wrap:wrap;}
+  .proj-head h3{flex:1 1 auto; min-width:200px;}
+  .proj-badges{display:flex; align-items:center; gap:6px; flex-wrap:wrap;}
   .badge{
     font-family:var(--mono); font-size:10.5px; font-weight:700; letter-spacing:.03em;
     padding:3px 9px; border-radius:20px; white-space:nowrap;
+    text-decoration:none; display:inline-flex; align-items:center; gap:4px;
+    border:1px solid transparent;
   }
   .badge.priv{color:var(--warn); background:var(--warn-bg);}
   .badge.plan{color:var(--ink-faint); background:var(--bg); border:1px solid var(--border);}
+  .badge.event{color:var(--get); background:var(--get-bg);}
+  .badge.live{color:var(--post); background:var(--post-bg);}
+  .badge.code{color:var(--ink-soft); background:var(--bg); border:1px solid var(--border);}
+  a.badge.live:hover, a.badge.code:hover{border-color:currentColor;}
   .tags{display:flex; flex-wrap:wrap; gap:6px; margin:14px 0 0;}
   .tag{font-family:var(--mono); font-size:11px; color:var(--ink-soft); background:var(--bg); border:1px solid var(--border); padding:3px 8px; border-radius:4px;}
   .nda-note{
@@ -385,7 +393,7 @@
     <div class="proj-card">
       <div class="proj-head">
         <h3 style="font-size:16px; font-family:var(--sans); margin:0;">Application security dashboard</h3>
-        <span class="badge priv">Private — NDA</span>
+        <div class="proj-badges"><span class="badge priv">Private — NDA</span></div>
       </div>
       <p style="margin:0;">Backend for a security-scanning platform: REST and GraphQL APIs, role-based authorization, integrations with several scanning services, and reporting endpoints tuned for dashboard performance.</p>
       <div class="tags">
@@ -398,7 +406,7 @@
     <div class="proj-card">
       <div class="proj-head">
         <h3 style="font-size:16px; font-family:var(--sans); margin:0;">Messaging platform migration</h3>
-        <span class="badge priv">Private — NDA</span>
+        <div class="proj-badges"><span class="badge priv">Private — NDA</span></div>
       </div>
       <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-family:var(--mono); margin:14px 0 6px;">Challenge</h3>
       <p style="margin:0 0 14px;">Our application depended on a third-party messaging platform that no longer met our operational and product requirements. The migration needed to preserve existing user data while minimizing service disruption for approximately 10,000 daily active users.</p>
@@ -411,6 +419,81 @@
       </div>
       <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-family:var(--mono); margin:14px 0 6px;">Outcome</h3>
       <p style="margin:0;">Migrated the messaging backend for roughly <strong style="color:var(--ink); font-weight:600;">10,000 daily active users</strong> with minimal service disruption, cut manual migration work through automated Python scripts, and left a more flexible foundation for future messaging features.</p>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-head">
+        <h3 style="font-size:16px; font-family:var(--sans); margin:0;">Financial accounting integration refactor</h3>
+        <div class="proj-badges"><span class="badge priv">Private — NDA</span></div>
+      </div>
+
+      <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-family:var(--mono); margin:14px 0 6px;">Challenge</h3>
+      <p style="margin:0 0 14px;">An existing financial workflow module needed to be refactored to support accounting integration across several high-volume transaction paths without disrupting core business operations. The main difficulty was modernizing the implementation while preserving reliability and keeping the logic maintainable for future changes.</p>
+
+      <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-family:var(--mono); margin:14px 0 6px;">Solution</h3>
+      <p style="margin:0 0 14px;">I contributed to the backend refactor by restructuring the module into a more modular NestJS architecture, separating transaction processing into focused services for customer setup, item creation, journal entry generation, and workflow callbacks. The implementation used TypeScript, Prisma, and a service-oriented integration layer to connect financial events with the accounting system more cleanly and safely.</p>
+
+      <div class="tags">
+        <span class="tag">NestJS</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Prisma</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Docker</span>
+      </div>
+
+      <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-family:var(--mono); margin:14px 0 6px;">Outcome</h3>
+      <p style="margin:0;">The financial integration refactor improved the reliability, maintainability, and extensibility of the financial integration layer, making it easier to support new transaction flows and future reporting needs.</p>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-head">
+        <h3 style="font-size:16px;font-family:var(--sans);margin:0;">
+          AmbulansKu — AI-powered Emergency Medical Access Platform
+        </h3>
+        <div class="proj-badges">
+          <span class="badge event">Vibathon Project</span>
+          <a href="http://ambulansku.my.id" target="_blank" rel="noopener" class="badge live">Live Demo ↗</a>
+          <a href="https://github.com/khorihutama/ambulansku" target="_blank" rel="noopener" class="badge code">GitHub ↗</a>
+        </div>
+      </div>
+
+      <h3 style="font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-family:var(--mono);margin:14px 0 6px;">
+        Challenge
+      </h3>
+
+      <p style="margin:0 0 14px;">
+        Built during a Vibathon (AI-assisted hackathon), AmbulansKu addresses a critical problem in Indonesia by helping users quickly locate nearby ambulances and healthcare facilities for both emergency situations (e.g. accidents, heart attacks) and scheduled medical visits (e.g. dialysis and routine check-ups). The platform needed to understand natural Indonesian language and provide the fastest path to appropriate medical assistance.
+      </p>
+
+      <h3 style="font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-family:var(--mono);margin:14px 0 6px;">
+        Solution
+      </h3>
+
+      <p style="margin:0 0 14px;">
+        Developed an AI-powered triage experience using the Vercel AI SDK and OpenRouter to interpret user requests in natural Indonesian language. Implemented geospatial facility search with PostGIS and Google Maps, enabling users to discover nearby ambulances and healthcare providers and contact them with a single tap. Built as a Progressive Web App (PWA) for mobile-first accessibility.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Next.js 16</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Vercel AI SDK</span>
+        <span class="tag">OpenRouter</span>
+        <span class="tag">Supabase</span>
+        <span class="tag">PostGIS</span>
+        <span class="tag">Google Maps API</span>
+        <span class="tag">Tailwind CSS v4</span>
+        <span class="tag">shadcn/ui</span>
+        <span class="tag">PWA</span>
+        <span class="tag">Render</span>
+      </div>
+
+      <h3 style="font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-family:var(--mono);margin:14px 0 6px;">
+        Outcome
+      </h3>
+
+      <p style="margin:0;">
+        Successfully delivered a functional MVP within the hackathon timeframe, demonstrating rapid product development, AI integration, geospatial search, and end-to-end deployment while validating an AI-assisted approach to emergency medical access.
+      </p>
     </div>
 
     <!-- <div class="proj-card">
