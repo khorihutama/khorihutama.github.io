@@ -204,6 +204,15 @@
   .json-card .cursor{display:inline-block; width:6px; height:13px; background:var(--ink); margin-left:2px; vertical-align:-2px; animation:blink 1s step-end infinite;}
   @keyframes blink{50%{opacity:0;}}
 
+  /* ---- security stats ---- */
+  .stats-row{display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin-bottom:16px;}
+  .stat-box{
+    background:var(--panel); border:1px solid var(--border); border-radius:10px;
+    padding:16px 18px; display:flex; flex-direction:column; gap:4px;
+  }
+  .stat-num{font-family:var(--mono); font-size:24px; font-weight:700; color:var(--get);}
+  .stat-label{font-family:var(--mono); font-size:11px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.04em;}
+
   /* ---- experience ---- */
   .exp-card{
     background:var(--panel); border:1px solid var(--border); border-radius:10px;
@@ -286,6 +295,7 @@
   @media (max-width:720px){
     .hero{grid-template-columns:1fr;}
     .stack-grid{grid-template-columns:1fr;}
+    .stats-row{grid-template-columns:1fr;}
     .eyebrow .status-code{display:none;}
     .titlebar-right .status{display:none;}
   }
@@ -319,7 +329,7 @@
       border-bottom:1px solid #DDDDDD;
       break-inside:avoid;
     }
-    .exp-card, .proj-card, .stack-block, .json-card, .contact-card, .arch-wrap{
+    .exp-card, .proj-card, .stack-block, .json-card, .contact-card, .arch-wrap, .stat-box{
       break-inside:avoid;
       box-shadow:none !important;
       border:1px solid #DDDDDD;
@@ -365,6 +375,7 @@
   <div class="endpoints-inner">
     <a class="ep" href="#about"><span class="verb get">GET</span>/about</a>
     <a class="ep" href="#experience"><span class="verb get">GET</span>/experience</a>
+    <a class="ep" href="#security"><span class="verb get">GET</span>/security</a>
     <a class="ep" href="#stack"><span class="verb get">GET</span>/stack</a>
     <a class="ep" href="#projects"><span class="verb get">GET</span>/projects</a>
     <a class="ep" href="#architecture"><span class="verb get">GET</span>/architecture</a>
@@ -419,6 +430,56 @@
         <li>Apply OWASP-aligned secure coding practices across the backend.</li>
         <li>Work with Docker, Kubernetes, RabbitMQ, Firebase, and Prisma day to day.</li>
       </ul>
+    </div>
+  </section>
+
+  <section id="security">
+    <div class="eyebrow"><span class="verb get">GET</span><span class="path">/security</span><span class="status-code">200 OK</span></div>
+    <h2>Security</h2>
+    <p style="margin-bottom:20px;">Alongside backend development, I do hands-on application security work — testing, incident response, and the reporting that turns findings into fixes.</p>
+
+    <div class="stats-row">
+      <div class="stat-box"><span class="stat-num">100+</span><span class="stat-label">findings triaged</span></div>
+      <div class="stat-box"><span class="stat-num">4</span><span class="stat-label">environments tested</span></div>
+      <div class="stat-box"><span class="stat-num">15+</span><span class="stat-label">PoC engagements</span></div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-head">
+        <h3 style="font-size:16px; font-family:var(--sans); margin:0;">VAPT &amp; application security assessments</h3>
+        <div class="proj-badges"><span class="badge event">VAPT</span></div>
+      </div>
+      <p style="margin:0 0 14px;">Conducted end-to-end vulnerability assessment and penetration testing on 3 production web applications and 1 staging environment, combining manual penetration testing with automated application security scanning.</p>
+      <p style="margin:0;">Identified, triaged, and validated 100+ security findings, including broken access control, XSS, API security issues, security misconfigurations, and vulnerable third-party dependencies (CVEs).</p>
+      <div class="tags">
+        <span class="tag">Manual Pentesting</span><span class="tag">DAST</span><span class="tag">OWASP Top 10</span>
+        <span class="tag">Broken Access Control</span><span class="tag">XSS</span><span class="tag">API Security</span><span class="tag">CVE Triage</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-head">
+        <h3 style="font-size:16px; font-family:var(--sans); margin:0;">Incident response — Microsoft 365 &amp; Exchange</h3>
+        <div class="proj-badges"><span class="badge event">Incident Response</span></div>
+      </div>
+      <p style="margin:0 0 14px;">Investigated Microsoft 365 and Exchange security incidents involving compromised accounts, malicious mail connectors, and email abuse.</p>
+      <p style="margin:0;">Handled incident triage, log analysis, and root cause analysis, and coordinated remediation with the affected teams.</p>
+      <div class="tags">
+        <span class="tag">Microsoft 365</span><span class="tag">Exchange Online</span><span class="tag">Log Analysis</span>
+        <span class="tag">Root Cause Analysis</span><span class="tag">Remediation</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-head">
+        <h3 style="font-size:16px; font-family:var(--sans); margin:0;">Security reporting &amp; remediation tracking</h3>
+        <div class="proj-badges"><span class="badge event">Reporting</span></div>
+      </div>
+      <p style="margin:0 0 14px;">Produced security assessment reports with CVSS scoring, proof-of-concept evidence, and risk analysis, alongside prioritized remediation recommendations for each finding.</p>
+      <p style="margin:0;">Worked closely with development teams to validate fixes and improve application security over time — this reporting work fed directly into the <a href="#projects" style="color:var(--get); text-decoration:underline;">Application Security Dashboard</a> project below, which centralizes findings, risk scoring, and remediation status across ASM, DAST, SAST, SCA, and mobile security assessments.</p>
+      <div class="tags">
+        <span class="tag">CVSS</span><span class="tag">Risk Analysis</span><span class="tag">Remediation Tracking</span>
+      </div>
     </div>
   </section>
 
