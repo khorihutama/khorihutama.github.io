@@ -289,6 +289,51 @@
     .eyebrow .status-code{display:none;}
     .titlebar-right .status{display:none;}
   }
+
+  /* ---- print ---- */
+  @media print{
+    :root, :root[data-theme="dark"], :root[data-theme="light"]{
+      --bg:#FFFFFF;
+      --panel:#FFFFFF;
+      --border:#DDDDDD;
+      --border-strong:#BBBBBB;
+      --ink:#111111;
+      --ink-soft:#444444;
+      --ink-faint:#666666;
+      --get:#2F6FED;
+      --get-bg:#EEF3FE;
+      --post:#1E9E6B;
+      --post-bg:#EAF6F0;
+      --warn:#C97E1D;
+      --warn-bg:#FBF1E2;
+      --contrast-bg:#111111;
+      --contrast-text:#FFFFFF;
+    }
+    body{background:#fff;}
+    .titlebar, nav.endpoints, .theme-toggle, .social-links, .hero-actions, .status-pip{
+      display:none !important;
+    }
+    .cursor{display:none !important;}
+    section{
+      padding:18px 0;
+      border-bottom:1px solid #DDDDDD;
+      break-inside:avoid;
+    }
+    .exp-card, .proj-card, .stack-block, .json-card, .contact-card, .arch-wrap{
+      break-inside:avoid;
+      box-shadow:none !important;
+      border:1px solid #DDDDDD;
+    }
+    .wrap{max-width:100%; padding:0 8px;}
+    a{text-decoration:none; color:inherit;}
+    .field-val a, .icon-link{color:inherit;}
+    h2, h3{break-after:avoid;}
+    footer{padding:16px 0;}
+    .print-header{display:block !important;}
+  }
+  .print-header{display:none; padding:16px 0 8px; border-bottom:2px solid #111; margin-bottom:8px;}
+  .print-header .pname{font-family:var(--sans); font-weight:600; font-size:20px; color:#111;}
+  .print-header .prole{font-family:var(--mono); font-size:12px; color:#444;}
 </style>
 </head>
 <body>
@@ -328,6 +373,10 @@
 </nav>
 
 <div class="wrap">
+  <div class="print-header">
+    <div class="pname">Khori Hutama</div>
+    <div class="prole">Backend Engineer — khori.dev</div>
+  </div>
 
   <section id="about">
     <div class="hero">
@@ -421,7 +470,7 @@
       <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-family:var(--mono); margin:14px 0 6px;">Challenge</h3>
       <p style="margin:0 0 14px;">Security teams used several separate scanning tools with no single place to see findings across them. The platform needed to aggregate those results in one place and make sure different teams only had access to what they were authorized to see.</p>
       <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-family:var(--mono); margin:14px 0 6px;">Solution</h3>
-      <p style="margin:0 0 14px;">My contribution covered a handful of modules rather than the full backend: portions of the REST API and integration work with a few of the scanning services. I also touched parts of the database schema, helped build out scan ingestion jobs, and developed several of the underlying security tools that feed into the aggregated results.</p>
+      <p style="margin:0 0 14px;">My contribution covered a handful of modules rather than the full backend: portions of the REST API, role-based authorization, and integration work with a few of the scanning services. I also touched parts of the database schema, helped build out scan ingestion jobs, and developed several of the underlying security tools that feed into the aggregated results.</p>
       <div class="tags">
         <span class="tag">NestJS</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span>
         <span class="tag">RabbitMQ</span><span class="tag">Docker</span><span class="tag">Kubernetes</span>
