@@ -561,15 +561,15 @@
 
     <div class="proj-card">
       <div class="proj-head">
-        <h3 style="font-size:16px; font-family:var(--sans); margin:0;">Financial accounting integration refactor</h3>
+        <h3 style="font-size:16px; font-family:var(--sans); margin:0;">Marketplace accounting integration</h3>
         <div class="proj-badges"><span class="badge priv">Private — NDA</span></div>
       </div>
 
       <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-family:var(--mono); margin:14px 0 6px;">Challenge</h3>
-      <p style="margin:0 0 14px;">An existing financial workflow module needed to be refactored to support accounting integration across several high-volume transaction paths without disrupting core business operations. The main difficulty was modernizing the implementation while preserving reliability and keeping the logic maintainable for future changes.</p>
+      <p style="margin:0 0 14px;">The application was being rewritten from an existing legacy codebase into NestJS. As part of that broader rewrite, the accounting integration needed to keep several high-volume transaction paths running reliably — customer creation, item synchronization, payments, closed workspaces, sales orders, journal vouchers, and freelancer payouts — without disrupting core business operations, while becoming more structured and maintainable.</p>
 
       <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-family:var(--mono); margin:14px 0 6px;">Solution</h3>
-      <p style="margin:0 0 14px;">I contributed to the backend refactor by restructuring the module into a more modular NestJS architecture, separating transaction processing into focused services for customer setup, item creation, journal entry generation, and workflow callbacks. The implementation used TypeScript, Prisma, and a service-oriented integration layer to connect financial events with the accounting system more cleanly and safely.</p>
+      <p style="margin:0 0 14px;">I contributed to rebuilding the report-service accounting modules in NestJS, restructuring the integration into focused services for customer setup, item synchronization, journal entry generation, and workflow callbacks. The implementation connected marketplace data with Accurate Online through OAuth token refresh and database sessions, generating sales orders, down payments, receipts, and journal vouchers, and processing freelancer payout entries. Asynchronous forwarding, retry configuration, callback-based workflow steps, and request-response logging supported reliable processing across these dependent accounting operations.</p>
 
       <div class="tags">
         <span class="tag">NestJS</span>
@@ -577,10 +577,16 @@
         <span class="tag">Prisma</span>
         <span class="tag">PostgreSQL</span>
         <span class="tag">Docker</span>
+        <span class="tag">Accurate Online API</span>
+        <span class="tag">OAuth 2.0</span>
+        <span class="tag">REST API</span>
+        <span class="tag">Legacy system rewrite</span>
       </div>
 
       <h3 style="font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-family:var(--mono); margin:14px 0 6px;">Outcome</h3>
-      <p style="margin:0;">The financial integration refactor improved the reliability, maintainability, and extensibility of the financial integration layer, making it easier to support new transaction flows and future reporting needs.</p>
+      <p style="margin:0;">Contributed to rebuilding the module into a modular, service-oriented NestJS backend that kept marketplace payments, workspaces, and freelancer payouts reliably connected to Accurate Online — improving maintainability, workflow organization, and transaction traceability for future reporting needs.</p>
+
+      <div class="nda-note">Source unavailable due to employer confidentiality. Migration approach, integration flow, and accounting mapping are open to discuss in interview.</div>
     </div>
 
     <div class="proj-card">
