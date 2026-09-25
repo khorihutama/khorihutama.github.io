@@ -1,0 +1,60 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Replaces YOUR_DRIVE_PDF_LINK in resume/index.html with the value of the
+      # RESUME_PDF_URL repo secret. The secret never appears in the repo itself —
+      # only in the deployed output on GitHub's Pages servers.
+      - name: Inject resume link from secret
+        env:
+          RESUME_PDF_URL: ${{ secrets.RESUME_PDF_URL }}
+        run: |
+          if [ -z "$RESUME_PDF_URL" ]; then
+            echo "::error::RESUME_PDF_URL secret is not set. Add it under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          python3 - <<'PYEOF'
+          import os
+          path = "resume/index.html"
+          with open(path, "r", encoding="utf-8") as f:
+              content = f.read()
+          content = content.replace("YOUR_DRIVE_PDF_LINK", os.environ["RESUME_PDF_URL"])
+          with open(path, "w", encoding="utf-8") as f:
+              f.write(content)
+          print(f"Injected resume link into {path}")
+          PYEOF
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
